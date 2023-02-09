@@ -27,3 +27,21 @@ ORDER BY average_salary;
 SELECT job_title , COUNT(job_title) AS number_categories FROM data_scientist_salary.data_scientist_salaries
 GROUP BY job_title
 ORDER BY number_categories;
+
+#calculating the maximum and Minimum salary from the data for each category
+SELECT job_title, MAX(salary_in_usd) AS highest_salary, MIN(salary_in_usd) AS lowest_salary FROM data_scientist_salary.data_scientist_salaries
+GROUP BY job_title;
+#calculate the percentage difference in the columns from the average salary
+SELECT job_title, 100 * (salary_in_usd - AVG(salary_in_usd)) / AVG(salary_in_usd) AS pct_diff_from_avg FROM data_scientist_salary.data_scientist_salaries
+GROUP BY job_title;
+#calculating standard deviation for each job title.
+SELECT job_title,STDDEV(salary_in_usd) FROM data_scientist_salary.data_scientist_salaries
+GROUP BY job_title;
+
+
+
+
+
+
+
+
